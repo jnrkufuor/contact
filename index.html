@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Locate</title>
+		<link rel="stylesheet" href="css/font.css" />
+		<link rel="stylesheet" href="css/materialize.min.css">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="font_awesome/css/font-awesome.min.css">
+	</head>
+	<body>
+
+
+		<button class="btn">Click Me </button>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script src="js/materialize.min.js"></script>
+		<script src="https://use.fontawesome.com/e71a2dc69d.js"></script>
+		<script src="js/lib/jquery.js"></script>
+		<script src="js/app/app.js"></script>
+		<script src="js/app/bootstrap.js"></script>
+		<script src="js/myscript.js"></script>
+		<script type="text/javascript" src="js/cordova-android.js"></script>
+		<script async defer
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqzFNqMOFKzyeJguXJFIotMQxUKJhk9As&libraries=places&sensor=false">
+		</script>
+		<script>
+			$(document).ready(
+				function() {
+					$(".btn").click(function() {
+						navigator.contacts.pickContact(function(contact){
+							console.log('The following contact has been selected:' + JSON.stringify(contact));
+							alert(JSON.stringify(contact));
+						},function(err){
+							console.log('Error: ' + err);
+						});
+					});
+				}
+			);
+		</script>
+	</body>
+</html>
